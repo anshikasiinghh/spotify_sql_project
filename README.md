@@ -112,33 +112,39 @@ This project answers 13 real-world analytical questions categorized into three l
 
 🟢 Beginner Level (SQL Fundamentals)
 1. Tracks with more than 1 Billion Streams
- ```SELECT track, stream
+ ```sql
+SELECT track, stream
 FROM spotify
 WHERE stream >= 1000000000;
 
  ```
 2. Albums with their respective artists
-```SELECT album, artist
+```sql
+SELECT album, artist
 FROM spotify;
 ```
 3. Total albums per artist (Top creators)
-```SELECT artist, COUNT(album) AS total_albums
+```sql
+SELECT artist, COUNT(album) AS total_albums
 FROM spotify
 GROUP BY artist
 ORDER BY total_albums DESC;
 ```
 4. Total comments on licensed tracks
-```SELECT SUM(commentss) AS total_comments
+```sql
+SELECT SUM(commentss) AS total_comments
 FROM spotify
 WHERE licensed = TRUE;
 ```
 5. Tracks from "Single" album type
-```SELECT track, album_type
+```sql
+SELECT track, album_type
 FROM spotify
 WHERE album_type = 'single';
 ```
 6.Count the total number of tracks by each artist.
-```select
+```sql
+select
 artist,
 count(track) as count_track
 from spotify
@@ -147,19 +153,22 @@ order by 2 desc
 ```
 🟡 Intermediate Level Analysis
 7. Average danceability per album
-```SELECT album, AVG(danceability) AS avg_danceability
+```sql
+SELECT album, AVG(danceability) AS avg_danceability
 FROM spotify
 GROUP BY album;
 ```
 8. Top 5 highest energy tracks
-```SELECT track, MAX(energy) AS energy
+```sql
+SELECT track, MAX(energy) AS energy
 FROM spotify
 GROUP BY track
 ORDER BY energy DESC
 LIMIT 5;
 ```
 9.List all tracks along with their views and likes where official_video = TRUE.
-```select
+```sql
+select
 track,
 sum(viewss)as sum_view,
 sum(likes) as sum_like,
@@ -169,7 +178,8 @@ where official_video = 'true'
 group by 1,4
 ```
 10.For each album, calculate the total views of all associated tracks.
-```select
+```sql
+select
 album,
 track,
 sum(viewss) as sum_view
@@ -179,7 +189,8 @@ order by 3 desc
 ```
 🔴 Advanced Level Analysis
 11. Top 3 most viewed tracks per artist
-```select*from
+```sql
+select*from
 (select
 artist,
 track,
@@ -190,7 +201,8 @@ group by 1,2)
 where ranking <= 3;
 ```
 12.Write a query to find tracks where the liveness score is above the average.
-```select 
+```sql
+select 
 track,
 liveness
 from spotify
@@ -218,6 +230,7 @@ order by 2 desc;
 ```
 
 📊 Key Business Insights
+
 .🎵 High-energy tracks dominate top-performing content
 .📈 Some artists consistently outperform across all engagement metrics
 .🎥 Official videos significantly boost views & likes
@@ -225,6 +238,7 @@ order by 2 desc;
 .🔍 Engagement ≠ popularity → deeper metrics matter
 
 🚀 Skills Demonstrated
+
 .SQL Fundamentals (Filtering, Aggregations)
 .Intermediate SQL (GROUP BY, CASE WHEN, Subqueries)
 .Advanced SQL (CTEs, Window Functions, Ranking)
