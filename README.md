@@ -19,7 +19,7 @@ The analysis progresses from basic data exploration → intermediate aggregation
 📂 Dataset Description
 
 The dataset simulates Spotify-like streaming data and contains:
-</> SQL
+```SQL
 Artist VARCHAR(100),
 Track VARCHAR(300),
 Album VARCHAR(350),
@@ -44,8 +44,10 @@ official_video BOOLEAN,
 Stream BIGINT,
 EnergyLiveness FLOAT,
 most_playedon VARCHAR(150)
+```
 
 🧱 Database Setup
+```
 DROP TABLE IF EXISTS spotify;
 
 CREATE TABLE spotify(
@@ -74,6 +76,7 @@ CREATE TABLE spotify(
     EnergyLiveness FLOAT,
     most_playedon VARCHAR(150)
 );
+```
 🎯 Business Questions Solved
 
 This project answers 15 real-world analytical questions categorized into three levels:
