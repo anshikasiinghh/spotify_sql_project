@@ -4,17 +4,23 @@
 
 📌 Overview
 This project demonstrates my ability to perform Exploratory Data Analysis (EDA) and solve real-world business problems using SQL on a Spotify-inspired dataset.
+
 The analysis progresses from basic data exploration → intermediate aggregations → advanced analytical queries, showcasing a structured approach to problem-solving as a Data Analyst.
 
 🎯 Objectives
 .Practice and demonstrate SQL skills across difficulty levels
+
 .Solve real-world analytical problems
+
 .Write optimized and readable SQL queries
+
 .Derive actionable insights from data
 
 🛠️ Tech Stack
 .SQL (PostgreSQL / MySQL compatible)
+
 .DBMS: PostgreSQL / MySQL 
+
 .Tools Used: DBeaver / MySQL Workbench / pgAdmin
 
 📂 Dataset Description
@@ -152,6 +158,7 @@ group by 1
 order by 2 desc
 ```
 🟡 Intermediate Level Analysis
+
 7. Average danceability per album
 ```sql
 SELECT album, AVG(danceability) AS avg_danceability
@@ -188,6 +195,7 @@ group by 1,2
 order by 3 desc
 ```
 🔴 Advanced Level Analysis
+
 11. Top 3 most viewed tracks per artist
 ```sql
 select*from
@@ -232,17 +240,25 @@ order by 2 desc;
 📊 Key Business Insights
 
 .🎵 High-energy tracks dominate top-performing content
+
 .📈 Some artists consistently outperform across all engagement metrics
+
 .🎥 Official videos significantly boost views & likes
+
 .📱 Platform comparison reveals Spotify vs YouTube consumption behavior
+
 .🔍 Engagement ≠ popularity → deeper metrics matter
 
 🚀 Skills Demonstrated
 
 .SQL Fundamentals (Filtering, Aggregations)
+
 .Intermediate SQL (GROUP BY, CASE WHEN, Subqueries)
+
 .Advanced SQL (CTEs, Window Functions, Ranking)
+
 .Exploratory Data Analysis (EDA)
+
 .Business-Oriented Thinking
 
 📁 Project Structure
