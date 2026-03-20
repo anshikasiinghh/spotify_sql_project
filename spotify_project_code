@@ -1,0 +1,228 @@
+--project on spotify easy to advance
+drop table if exists spotify
+create table spotify(
+Artist varchar(100),
+Track varchar (300),
+Album varchar(350),
+Album_type varchar(500),
+Danceability float,
+Energy float,
+Loudness float,
+Speechiness float,
+Acousticness float,
+Instrumentalness float,
+Liveness float,
+Valence	float,
+Tempo float,
+Duration_min float,
+Title varchar(500),
+Channel varchar(250),
+Viewss bigint,
+Likes bigint,
+Commentss bigint,
+Licensed boolean,
+official_video boolean,
+Stream bigint,
+EnergyLiveness float,
+most_playedon varchar(150)
+)
+select* from spotify
+
+--eda
+
+select count(*) from spotify
+
+select count(distinct artist) from spotify
+
+select count(distinct album) from spotify
+
+select distinct(album_type) from spotify
+
+select avg(energy)from spotify
+
+select avg(loudness)from spotify
+
+select avg(speechiness)from spotify
+
+select avg(acousticness)from spotify
+
+select max(duration_min) as max_duration from spotify
+select min(duration_min) as min_duration from spotify
+
+select * from spotify
+where duration_min= (select min(duration_min) as min_duration from spotify)
+
+delete from spotify
+where duration_min= (select min(duration_min) as min_duration from spotify)
+
+select count(distinct channel) from spotify
+select distinct(channel) from spotify
+
+select distinct(most_playedon) from spotify
+select  max(most_playedon) from spotify
+
+select max(stream) from spotify
+
+-- ----------------------------
+-- data analysis -easy category
+-- ----------------------------
+
+
+--1)Retrieve the names of all tracks that have more than 1 billion streams.
+
+select 
+track,
+stream
+from spotify
+where stream >= 1000000000
+
+--2)List all albums along with their respective artists.
+
+select
+album,
+artist
+from spotify
+
+--3) list the total count of album by each artist and who hase the max no of album.
+
+select 
+artist,
+count(album)
+from spotify
+group by 1
+order by 2 desc
+
+--4)Get the total number of comments for tracks where licensed = TRUE.
+
+select
+sum(commentss)
+from spotify
+where licensed ='true'
+
+--5) list the track,commentss of true licensed.
+
+select
+track,
+commentss,
+licensed
+from spotify
+where licensed = 'true'
+
+--6)Find all tracks that belong to the album type single.
+
+select
+track,
+album_type
+from spotify
+where album_type= 'single'
+
+--7)Count the total number of tracks by each artist.
+
+select
+artist,
+count(track) as count_track
+from spotify
+group by 1
+order by 2 desc
+
+-- ---------------------------
+-- data analysis -medium level
+-- ---------------------------
+
+--8)Calculate the average danceability of tracks in each album.
+
+select
+track,
+album,
+avg(danceability)
+from spotify
+group by 1,2
+
+--9)Find the top 5 tracks with the highest energy values.
+
+select
+track,
+max(energy)
+from spotify
+group by 1
+order by 2 desc
+limit 5
+
+--10)List all tracks along with their views and likes where official_video = TRUE.
+
+select
+track,
+sum(viewss)as sum_view,
+sum(likes) as sum_like,
+official_video
+from spotify
+where official_video = 'true'
+group by 1,4
+
+--11)For each album, calculate the total views of all associated tracks.
+
+select
+album,
+track,
+sum(viewss) as sum_view
+from spotify
+group by 1,2
+order by 3 desc
+
+--12)Retrieve the track names that have been streamed on Spotify more than YouTube.
+
+select * from
+(select
+track,
+sum(case when most_playedon ='youtube' then stream else 0 end) as streamed_on_youtube,
+sum(case when most_playedon ='spotify' then stream else 0 end) as streamed_on_spotify
+from spotify
+group by 1) as t1
+where streamed_on_spotify> streamed_on_youtube
+
+-- ---------------------------
+-- data analysis -advance level
+-- ----------------------------
+
+--13)Find the top 3 most-viewed tracks for each artist using window functions.
+
+select*from
+(select
+artist,
+track,
+sum(viewss),
+dense_rank() over(partition by artist order by sum(viewss) desc)as ranking
+from spotify
+group by 1,2)
+where ranking <= 3
+
+--14)Write a query to find tracks where the liveness score is above the average.
+select * from spotify
+
+select 
+track,
+liveness
+from spotify
+where liveness > (select avg(liveness) from spotify)
+group by 1,2
+order by 2
+
+--15)Use a WITH clause to calculate the difference between the highest and lowest energy values for tracks in each album.
+with energy_1
+as
+(select
+track,
+album,
+max(energy) as highest_energy,
+min(energy) as lowest_energy
+from spotify
+group by 1,2)
+
+select
+album,
+highest_energy - lowest_energy as energy_difference
+from energy_1
+order by 2 desc
+
+
+
