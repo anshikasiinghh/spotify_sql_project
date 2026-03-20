@@ -106,7 +106,7 @@ SELECT MAX(duration_min), MIN(duration_min) FROM spotify;
 
 🎯 Business Questions Solved
 
-This project answers 15 real-world analytical questions categorized into three levels:
+This project answers 13 real-world analytical questions categorized into three levels:
 
 🟢 Beginner Level (SQL Fundamentals)
 1. Tracks with more than 1 Billion Streams
