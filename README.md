@@ -1,6 +1,7 @@
 # spotify_sql_project
 ”
 🎧 Spotify SQL Data Analysis Project (Beginner → Advanced)
+
 📌 Overview
 This project demonstrates my ability to perform Exploratory Data Analysis (EDA) and solve real-world business problems using SQL on a Spotify-inspired dataset.
 The analysis progresses from basic data exploration → intermediate aggregations → advanced analytical queries, showcasing a structured approach to problem-solving as a Data Analyst.
