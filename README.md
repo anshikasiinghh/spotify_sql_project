@@ -116,6 +116,7 @@ This project answers 13 real-world analytical questions categorized into three l
    SELECT track, stream
 FROM spotify
 WHERE stream >= 1000000000;
+
    ```
 2. Albums with their respective artists
 ```
