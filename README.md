@@ -112,10 +112,13 @@ This project answers 13 real-world analytical questions categorized into three l
 
 🟢 Beginner Level (SQL Fundamentals)
 1. Tracks with more than 1 Billion Streams
-   ```
+
+    ```
+
 SELECT track, stream
 FROM spotify
 WHERE stream >= 1000000000;
+
  ```
 2. Albums with their respective artists
 ```
