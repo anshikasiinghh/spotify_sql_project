@@ -48,6 +48,7 @@ most_playedon VARCHAR(150)
 ```
 
 🧱 Database Setup
+
 ```
 DROP TABLE IF EXISTS spotify;
 
