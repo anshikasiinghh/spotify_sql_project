@@ -112,41 +112,33 @@ This project answers 13 real-world analytical questions categorized into three l
 
 🟢 Beginner Level (SQL Fundamentals)
 1. Tracks with more than 1 Billion Streams
-
-    ```
-
-SELECT track, stream
+ ```SELECT track, stream
 FROM spotify
 WHERE stream >= 1000000000;
 
  ```
 2. Albums with their respective artists
-```
-SELECT album, artist
+```SELECT album, artist
 FROM spotify;
 ```
 3. Total albums per artist (Top creators)
-```
-SELECT artist, COUNT(album) AS total_albums
+```SELECT artist, COUNT(album) AS total_albums
 FROM spotify
 GROUP BY artist
 ORDER BY total_albums DESC;
 ```
 4. Total comments on licensed tracks
-```
-SELECT SUM(commentss) AS total_comments
+```SELECT SUM(commentss) AS total_comments
 FROM spotify
 WHERE licensed = TRUE;
 ```
 5. Tracks from "Single" album type
-```
-SELECT track, album_type
+```SELECT track, album_type
 FROM spotify
 WHERE album_type = 'single';
 ```
 6.Count the total number of tracks by each artist.
-```
-select
+```select
 artist,
 count(track) as count_track
 from spotify
@@ -155,22 +147,19 @@ order by 2 desc
 ```
 🟡 Intermediate Level Analysis
 7. Average danceability per album
-```
-SELECT album, AVG(danceability) AS avg_danceability
+```SELECT album, AVG(danceability) AS avg_danceability
 FROM spotify
 GROUP BY album;
 ```
 8. Top 5 highest energy tracks
-```
-SELECT track, MAX(energy) AS energy
+```SELECT track, MAX(energy) AS energy
 FROM spotify
 GROUP BY track
 ORDER BY energy DESC
 LIMIT 5;
 ```
 9.List all tracks along with their views and likes where official_video = TRUE.
-```
-select
+```select
 track,
 sum(viewss)as sum_view,
 sum(likes) as sum_like,
@@ -180,8 +169,7 @@ where official_video = 'true'
 group by 1,4
 ```
 10.For each album, calculate the total views of all associated tracks.
-```
-select
+```select
 album,
 track,
 sum(viewss) as sum_view
@@ -191,8 +179,7 @@ order by 3 desc
 ```
 🔴 Advanced Level Analysis
 11. Top 3 most viewed tracks per artist
-```
-select*from
+```select*from
 (select
 artist,
 track,
