@@ -116,8 +116,7 @@ This project answers 13 real-world analytical questions categorized into three l
    SELECT track, stream
 FROM spotify
 WHERE stream >= 1000000000;
-
-   ```
+ ```
 2. Albums with their respective artists
 ```
 SELECT album, artist
@@ -201,8 +200,7 @@ group by 1,2)
 where ranking <= 3
 ```
 12.Write a query to find tracks where the liveness score is above the average.
-```
-select 
+```select 
 track,
 liveness
 from spotify
@@ -228,6 +226,7 @@ highest_energy - lowest_energy as energy_difference
 from energy_1
 order by 2 desc
 ```
+
 📊 Key Business Insights
 .🎵 High-energy tracks dominate top-performing content
 .📈 Some artists consistently outperform across all engagement metrics
