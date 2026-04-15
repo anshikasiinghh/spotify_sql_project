@@ -21,7 +21,7 @@ The analysis progresses from basic data exploration → intermediate aggregation
 
 .DBMS: PostgreSQL / MySQL 
 
-.Tools Used: DBeaver / MySQL Workbench / pgAdmin
+.Tools Used: MySQL Workbench / pgAdmin
 
 📂 Dataset Description
 
