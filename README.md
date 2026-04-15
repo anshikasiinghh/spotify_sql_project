@@ -55,7 +55,7 @@ most_playedon VARCHAR(150)
 
 🧱 Database Setup
 
-```
+```sql
 DROP TABLE IF EXISTS spotify;
 
 CREATE TABLE spotify(
@@ -88,7 +88,7 @@ CREATE TABLE spotify(
 
 🔍 Exploratory Data Analysis (EDA)
 Before solving business problems, I performed initial exploration:
-```
+```sql
 -- Total records
 SELECT COUNT(*) FROM spotify;
 
