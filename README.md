@@ -219,7 +219,7 @@ group by 1,2
 order by 2;
 ````
 13.Use a WITH clause to calculate the difference between the highest and lowest energy values for tracks in each album.
-```
+```sql
 with energy_1
 as
 (select
